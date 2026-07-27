@@ -27,6 +27,12 @@
     </div>
 
     <div class="container body-content">
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("Employees", "Index", "Employees")</li>
+            <li>@Html.ActionLink("Invoices", "Index", "Invoices")</li>
+        </ul>
+
         @RenderBody()
         <hr />
         <footer>
@@ -34,7 +40,9 @@
         </footer>
     </div>
 
+    <script src="~/Scripts/jquery-3.7.1.min.js"></script>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
 </body>
 </html>

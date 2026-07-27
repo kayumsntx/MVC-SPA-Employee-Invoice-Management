@@ -26,7 +26,9 @@ namespace MvcMasterDetailSPA1294989.Models
         public string CustomerName { get; set; }
         public string CustomerAddress { get; set; }
 
-        
+        [Display(Name = "Paid?")]
+        public bool IsPaid { get; set; }
+
         [ForeignKey("Employee")]
         public int EmployeeId { get; set; }
         public virtual Employee Employee { get; set; }
