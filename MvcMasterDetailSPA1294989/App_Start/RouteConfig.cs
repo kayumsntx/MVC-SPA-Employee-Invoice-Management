@@ -11,15 +11,15 @@ namespace MvcMasterDetailSPA1294989
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-        
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-               routes.MapRoute(
-                name: "InvoiceList",
-                url: "invoice-list",
-                defaults: new { controller = "Invoices", action = "Index" }
-            );
-        
+            routes.MapRoute(
+             name: "InvoiceList",
+             url: "invoice-list",
+             defaults: new { controller = "Invoices", action = "Index" }
+         );
+
 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
