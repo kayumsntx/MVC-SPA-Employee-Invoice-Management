@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MvcMasterDetailSPA1294989.Models.Invoice>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Invoice Date</th>
+            <th>Customer Name</th>
+            <th>Address</th>
+            <th>Paid?</th>
+            <th>Employee</th>
+            <th>Items</th>
+            <th>Total</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody id="invoice-list-body">
+        @foreach (var inv in Model)
+        {
+            <tr data-invoice-id="@inv.InvoiceId">
+                <td>@inv.InvoiceDate.ToString("yyyy-MM-dd")</td>
+                <td>@inv.CustomerName</td>
+                <td>@inv.CustomerAddress</td>
+                <td>@(inv.IsPaid? "Paid" : "Unpaid")</td>
+                <td>@inv.Employee.EmployeeName</td>
+                <td>
+                    <ul>
+                        @foreach (var it in inv.InvoiceItems)
+                        {
+                            <li>@it.ProductName : @it.Quantity x @it.UnitPrice</li>
+                        }
+                    </ul>
+                </td>
+                <td>@inv.InvoiceItems.Sum(x => x.Quantity * x.UnitPrice)</td>
+                <td>
+                    <a class="btn btn-primary btn-sm edit-btn" href="@Url.Action("EditPartial", "Invoices", new { id = inv.InvoiceId })">Edit</a>
+                    <button class="btn btn-danger btn-sm delete-btn" data-invoice-id="@inv.InvoiceId">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

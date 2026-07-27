@@ -1,0 +1,24 @@
+﻿@model MvcMasterDetailSPA1294989.Models.Employee
+
+@{
+    ViewBag.Title = "Delete Employee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete Employee</h2>
+<h4> Are you sure want to delete this Employee </h4>
+<div>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(m => m.EmployeeName)</dt>
+        <dd>@Html.DisplayFor(m => m.EmployeeName)</dd>
+        <dt>@Html.DisplayNameFor(m => m.Department)</dt>
+        <dd>@Html.DisplayFor(m => m.Department)</dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+@Html.ActionLink("Back to List", "Index")
+}
+</div>

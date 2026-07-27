@@ -6,14 +6,14 @@ namespace MvcMasterDetailSPA1294989.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.5.2")]
-    public sealed partial class init : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
+    public sealed partial class invoice : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(invoice));
         
         string IMigrationMetadata.Id
         {
-            get { return "202607260538427_init"; }
+            get { return "202607270256460_invoice"; }
         }
         
         string IMigrationMetadata.Source
