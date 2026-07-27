@@ -27,6 +27,14 @@ namespace MvcMasterDetailSPA1294989.Controllers
         {
             InvoiceViewModel vobj = new InvoiceViewModel();
             vobj.Employees = db.Employees.ToList();
+            vobj.Employees = db.Employees
+.ToList()
+.Select(e => new Employee
+{
+EmployeeId = e.EmployeeId,
+EmployeeName = e.EmployeeName + " - " + e.EmployeeId
+})
+.ToList();
             vobj.InvoiceItems.Add(new InvoiceItem() { InvoiceItemId = 0 });
             return PartialView("_CreateInvoicePartial", vobj);
         }
@@ -111,6 +119,14 @@ namespace MvcMasterDetailSPA1294989.Controllers
             if (!ModelState.IsValid)
             {
                 vobj.Employees = db.Employees.ToList();
+                vobj.Employees = db.Employees
+.ToList()
+.Select(e => new Employee
+{
+EmployeeId = e.EmployeeId,
+EmployeeName = e.EmployeeName + " - " + e.EmployeeId
+})
+.ToList();
                 return Json(new { success = false });
             }
 
